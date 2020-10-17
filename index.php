@@ -3,22 +3,43 @@
 require_once 'core/EquationInterface.php';
 require_once 'core/LogAbstract.php';
 require_once 'core/LogInterface.php';
+require_once 'mihajlov/MyLog.php';
+require_once 'mihajlov/MihajlovException.php';
 require_once 'mihajlov/LinearEquation.php';
 require_once 'mihajlov/QuadraticEquation.php';
-require_once 'mihajlov/MyLog.php';
 
 use mihajlov\QuadraticEquation;
 use mihajlov\MyLog as ml;
+use mihajlov\MihajlovException;
 
 ini_set("display_errors", 1);
 error_reporting(-1);
 
-$eq = new QuadraticEquation();
-$solutions = $eq->solve(4, -4, 0);
+try {
+    echo "Enter value: A, B, C\n\r";
 
+    $a = floatval(readline());
+    $b = floatval(readline());
+    $c = floatval(readline());
 
-ml::log("123");
-ml::log("13");
-ml::log("23");
+    $eq = new QuadraticEquation();
+
+    $solutions = $eq->solve($a, $b, $c);
+    if ($a === 0.) {
+        ml::log("Linear equation");
+        ml::log("{$b}x " . ($c > 0 ? "+ " : "- ") . "{$c} = 0");
+    } else {
+        ml::log("Quadratic equation");
+        ml::log("{$a}x^2 " . ($b > 0 ? "+ " : "- ") . "{$b}x " . ($c > 0 ? "+ " : "- ") . "{$c} = 0");
+
+    }
+
+    $result = "Equation roots: " . implode(' ', $solutions);
+    ml::log($result);
+} catch (MihajlovException $me) {
+    ml::log($me->get_message());
+}
+
 ml::write();
+
 ?>

@@ -1,6 +1,7 @@
 <?php
 
 namespace mihajlov;
+use InvalidArgumentException;
 
 class LinearEquation
 {
@@ -10,7 +11,8 @@ class LinearEquation
             throw new InvalidArgumentException("Equation doesn't exist");
         }
 
-        $this->X = -($b / $c);
+
+        $this->X = -($b * $c);
         return [$this->X];
     }
 
