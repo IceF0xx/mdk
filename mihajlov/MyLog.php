@@ -13,7 +13,7 @@ class MyLog extends LogAbstract implements LogInterface
         $unixTime = time();
         $logFile = "logs/$unixTime.log";
 
-        if (!file_exists("log")) {
+        if (!file_exists("logs")) {
             mkdir("logs");
         }
 
