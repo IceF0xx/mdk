@@ -10,6 +10,15 @@ class MyLog extends LogAbstract implements LogInterface
 {
     public function _write()
     {
+        $unixTime = time();
+        $logFile = "logs/$unixTime.log";
+
+        if (!file_exists("log")) {
+            mkdir("logs");
+        }
+
+        file_put_contents($logFile, implode("\n", $this->log));
+
         foreach ($this->log as $log) {
             echo $log . "\n";
         }

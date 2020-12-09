@@ -15,7 +15,7 @@ class QuadraticEquation extends LinearEquation implements EI
         return sqrt($discriminant);
     }
 
-    function solve(float $a, float $b, float $c): array
+    function solve($a, $b, $c): array
     {
         if ($a == 0) {
             return parent::solveLinear($b, $c);
