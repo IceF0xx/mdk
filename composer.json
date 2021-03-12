@@ -1,0 +1,20 @@
+{
+    "name": "icef0xx/mdk",
+    "description": "None",
+    "type": "library",
+    "license": "MIT",
+    "require": {"icef0xx/mdk-composer":  "^1.0"},
+    "repositories": [
+        {
+            "type": "git",
+            "url": "https://github.com/icef0xx/mdk-composer.git"
+        },
+        {
+            "type": "git",
+            "url": "https://github.com/rok9ru/trpo-core.git"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": "git symbolic-ref --short -q HEAD > version"
+    }
+}

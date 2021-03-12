@@ -1,12 +1,6 @@
 <?php
 
-require_once 'core/EquationInterface.php';
-require_once 'core/LogAbstract.php';
-require_once 'core/LogInterface.php';
-require_once 'mihajlov/MyLog.php';
-require_once 'mihajlov/MihajlovException.php';
-require_once 'mihajlov/LinearEquation.php';
-require_once 'mihajlov/QuadraticEquation.php';
+require_once __DIR__ . "/vendor/autoload.php";
 
 use mihajlov\QuadraticEquation;
 use mihajlov\MyLog as ml;
